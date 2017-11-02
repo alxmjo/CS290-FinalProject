@@ -1,12 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Curiosity</title>
+    <link rel="stylesheet" href="libraries/bulma.css">
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
+<nav class="navbar is-success">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+            <img src="images/rovergram-logo.png" alt="Rovergram"
+                 width="112" height="28">
+        </a>
 
-    <script src="app.js"></script>
+        <div class="navbar-burger burger" data-target="collapsible-nav-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div id="collapsible-nav-menu" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item is-active" href="https://bulma.io/expo/">
+                Curiosity
+            </a>
+            <a class="navbar-item" href="https://bulma.io/love/">
+                Opportunity
+            </a>
+            <a class="navbar-item" href="https://bulma.io/love/">
+                Spirit
+            </a>
+        </div>
+
+        <div class="navbar-end"></div>
+    </div>
+</nav>
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            Hello World
+        </h1>
+        <p class="subtitle">
+            My first website with <strong>Bulma</strong>!
+        </p>
+    </div>
+</section>
+<script src="bulma.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
