@@ -20,7 +20,6 @@ button.previous, button.next {
     background: white;
     border: none;
     border-radius: 50%;
-    font-size: 12px;
 }
 
 #slideshow:hover button.previous {
