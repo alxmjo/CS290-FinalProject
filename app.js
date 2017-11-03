@@ -19,11 +19,39 @@ function queryMarsPhotos(apiKey, rover, camera, sol, pages) {
                 newImage.src = data.photos[i].img_src;
                 newImage.classList.add('rounded');
                 newImage.classList.add('slide');
+
+                var newContentSol = document.createTextNode('Sol: ' + String(data.photos[i].sol));
+                var options = {year: 'numeric', month: 'long', day: 'numeric' };
+                var newDate = new Date(data.photos[i].earth_date).toLocaleDateString('en-US', options);
+                var newContentDate = document.createTextNode('Date: ' + newDate);
+                var newContentCamera = document.createTextNode('Camera: ' + String(data.photos[i].camera.full_name));
+
+                var newLISol = document.createElement("li");
+                newLISol.appendChild(newContentSol);
+
+                var newLIDate = document.createElement('li');
+                newLIDate.appendChild(newContentDate);
+
+                var newLICamera = document.createElement('li');
+                newLICamera.appendChild(newContentCamera);
+
+                var newUL = document.createElement('ul');
+                newUL.classList.add('meta');
+                newUL.appendChild(newLISol);
+                newUL.appendChild(newLIDate);
+                newUL.appendChild(newLICamera);
+
+                var newDiv = document.createElement('div');
+                newDiv.classList.add('content');
+                newDiv.appendChild(newUL);
+
                 var newFigure = document.createElement("figure");
                 newFigure.appendChild(newImage);
+                newFigure.appendChild(newDiv);
                 newFigure.classList.add('image');
+
                 slideshow.appendChild(newFigure);
-                console.log(data.photos[i].img_src);
+                console.log(data.photos[i]);
                 var slideIndex = 1;
                 showDivs(slideIndex);
             }
@@ -48,17 +76,18 @@ function getJSON(url, callback) {
     req.send();
 }
 
-
+// TODO: Comment and customize
 // With help from: https://www.w3schools.com/w3css/w3css_slideshow.asp
 function plusDivs(n) {
     showDivs(slideIndex += n);
 }
 
-
+// TODO: Comment and customize
 // With help from: https://www.w3schools.com/w3css/w3css_slideshow.asp
 function showDivs(n) {
     var i;
     var x = document.getElementsByClassName("slide");
+    var y = document.getElementsByClassName("meta");
     if (n > x.length) {
         slideIndex = 1
     }
@@ -67,9 +96,11 @@ function showDivs(n) {
     }
     for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";
+        y[i].style.display = "none";
     }
     if (x[slideIndex-1] !== undefined) {
         x[slideIndex-1].style.display = "block";
+        y[slideIndex-1].style.display = "block";
     }
 }
 
