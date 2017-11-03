@@ -17,8 +17,10 @@ button.previous, button.next {
     cursor: pointer;
     opacity: 0;
     color: #2f2f2f;
+    background: white;
+    border: none;
     border-radius: 50%;
-    border-style: solid;
+    font-size: 12px;
 }
 
 #slideshow:hover button.previous {
