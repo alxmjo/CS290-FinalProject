@@ -1,0 +1,45 @@
+img.rounded {
+    border-radius: 15px;
+}
+
+#slideshow-controls {
+    top: 46%;
+    position: relative;
+    z-index: 999;
+}
+
+/*TODO: Fix position of buttons on smallest viewport*/
+button.previous, button.next {
+    position: absolute;
+    display: block;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    opacity: 0;
+    color: #2f2f2f;
+    border-radius: 50%;
+    border-style: solid;
+}
+
+#slideshow:hover button.previous {
+    opacity: 1;
+    margin-left: 4%;
+    -o-transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
+    -webkit-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+}
+
+#slideshow:hover button.next {
+    right: 0;
+    margin-right: 4%;
+    opacity: 1;
+    -o-transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
+    -webkit-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+}
+
+button:focus {
+    outline:0;
+}

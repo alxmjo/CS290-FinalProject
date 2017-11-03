@@ -4,24 +4,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Curiosity</title>
-    <link rel="stylesheet" href="libraries/bulma.css">
+    <link rel="stylesheet" href="style/bulma.css">
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-<nav class="navbar is-success">
+<nav class="navbar is-dark">
     <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
             <img src="images/rovergram-logo.png" alt="Rovergram"
                  width="112" height="28">
         </a>
-
         <div class="navbar-burger burger" data-target="collapsible-nav-menu">
             <span></span>
             <span></span>
             <span></span>
         </div>
     </div>
-
     <div id="collapsible-nav-menu" class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item is-active" href="https://bulma.io/expo/">
@@ -33,6 +31,9 @@
             <a class="navbar-item" href="https://bulma.io/love/">
                 Spirit
             </a>
+            <a class="navbar-item" href="https://bulma.io/love/">
+                About
+            </a>
         </div>
 
         <div class="navbar-end"></div>
@@ -40,12 +41,14 @@
 </nav>
 <section class="section">
     <div class="container">
-        <h1 class="title">
-            Hello World
-        </h1>
-        <p class="subtitle">
-            My first website with <strong>Bulma</strong>!
-        </p>
+        <div class="columns">
+            <div id="slideshow" class="column is-half is-offset-one-quarter">
+                <div id="slideshow-controls">
+                    <button class="previous" onclick="plusDivs(-1)">&#10094;</button>
+                    <button class="next" onclick="plusDivs(+1)">&#10095;</button>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <script src="bulma.js"></script>
