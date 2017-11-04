@@ -15,45 +15,50 @@ function queryMarsPhotos(apiKey, rover, camera, sol, pages) {
             console.log('Something went wrong: ' + err);
         } else {
             for (var i = 0; i < data.photos.length; i++) {
+
+                // For each image retrieved from API, create HTML elements and append to the page
+
+                // Create new image element and append classes
                 var newImage = document.createElement("img");
                 newImage.src = data.photos[i].img_src;
                 newImage.classList.add('rounded');
                 newImage.classList.add('slide');
 
+                // Create new text elements
                 var newContentSol = document.createTextNode('Sol: ' + String(data.photos[i].sol));
                 var options = {year: 'numeric', month: 'long', day: 'numeric' };
                 var newDate = new Date(data.photos[i].earth_date).toLocaleDateString('en-US', options);
                 var newContentDate = document.createTextNode('Date: ' + newDate);
                 var newContentCamera = document.createTextNode('Camera: ' + String(data.photos[i].camera.full_name));
 
+                // Create new li's
                 var newLISol = document.createElement("li");
                 newLISol.appendChild(newContentSol);
-
                 var newLIDate = document.createElement('li');
                 newLIDate.appendChild(newContentDate);
-
                 var newLICamera = document.createElement('li');
                 newLICamera.appendChild(newContentCamera);
 
+                // Create new ul items and append li's
                 var newUL = document.createElement('ul');
                 newUL.classList.add('meta');
                 newUL.appendChild(newLISol);
                 newUL.appendChild(newLIDate);
                 newUL.appendChild(newLICamera);
 
+                // Create new div and append ul
                 var newDiv = document.createElement('div');
                 newDiv.classList.add('content');
                 newDiv.appendChild(newUL);
 
+                // Create new figure and append image and div (with ul and li's)
                 var newFigure = document.createElement("figure");
                 newFigure.appendChild(newImage);
                 newFigure.appendChild(newDiv);
                 newFigure.classList.add('image');
 
+                // Append figure to existing slideshow element
                 slideshow.appendChild(newFigure);
-                console.log(data.photos[i]);
-                var slideIndex = 1;
-                showDivs(slideIndex);
             }
         }
     });
