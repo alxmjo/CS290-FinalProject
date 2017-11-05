@@ -1,6 +1,6 @@
 // ---- Variables ----
 const APIKEYNASA = 'pGv9lTf2ocdPsrdSrIEbZ6FCqm8cI1iACdnEJbba';
-var slideshow = document.getElementById("slideshow");
+var slideshow = document.getElementById('slideshow');
 
 // ---- Functions ----
 // Queries NASA's MarsPhotos API and returns object containing metadata and image URLs
@@ -17,10 +17,10 @@ function queryMarsPhotos(apiKey, rover, camera, sol, pages) {
             // For each image retrieved from API, create HTML elements and append to the page
             for (var i = 0; i < data.photos.length; i++) {
                 // Create new image element and append classes
-                var newImage = document.createElement("img");
+                var newImage = document.createElement('img');
                 newImage.src = data.photos[i].img_src;
                 newImage.classList.add('rounded');
-                newImage.classList.add('slide');
+                newImage.classList.add('roverImage');
 
                 // Create new text elements
                 var newContentSol = document.createTextNode('Sol: ' + String(data.photos[i].sol));
@@ -30,7 +30,7 @@ function queryMarsPhotos(apiKey, rover, camera, sol, pages) {
                 var newContentCamera = document.createTextNode('Camera: ' + String(data.photos[i].camera.full_name));
 
                 // Create new li's
-                var newLISol = document.createElement("li");
+                var newLISol = document.createElement('li');
                 newLISol.appendChild(newContentSol);
                 var newLIDate = document.createElement('li');
                 newLIDate.appendChild(newContentDate);
@@ -39,7 +39,7 @@ function queryMarsPhotos(apiKey, rover, camera, sol, pages) {
 
                 // Create new ul items and append li's
                 var newUL = document.createElement('ul');
-                newUL.classList.add('meta');
+                newUL.classList.add('roverMeta');
                 newUL.appendChild(newLISol);
                 newUL.appendChild(newLIDate);
                 newUL.appendChild(newLICamera);
@@ -50,7 +50,7 @@ function queryMarsPhotos(apiKey, rover, camera, sol, pages) {
                 newDiv.appendChild(newUL);
 
                 // Create new figure and append image and div (with ul and li's)
-                var newFigure = document.createElement("figure");
+                var newFigure = document.createElement('figure');
                 newFigure.appendChild(newImage);
                 newFigure.appendChild(newDiv);
                 newFigure.classList.add('image');
@@ -60,7 +60,7 @@ function queryMarsPhotos(apiKey, rover, camera, sol, pages) {
 
                 // Prepare slides on initial query return
                 var slideIndex = 1;
-                showDivs(slideIndex);
+                showSlides(slideIndex);
             }
         }
     });
@@ -83,31 +83,44 @@ function getJSON(url, callback) {
     req.send();
 }
 
-// TODO: Comment and customize
+// Move to next (or previous) slide
+// If toMove is positive, move forward, if negative, move backwards
 // With help from: https://www.w3schools.com/w3css/w3css_slideshow.asp
-function plusDivs(n) {
-    showDivs(slideIndex += n);
+function plusDivs(toMove) {
+    showSlides(slideIndex += toMove);
 }
 
-// TODO: Comment and customize
+// Show current slide and hide all others
 // With help from: https://www.w3schools.com/w3css/w3css_slideshow.asp
-function showDivs(n) {
-    var i;
-    var x = document.getElementsByClassName("slide");
-    var y = document.getElementsByClassName("meta");
-    if (n > x.length) {
+function showSlides(currentSlide) {
+    // Assemble images and metadatas into arrays
+    var images = document.getElementsByClassName('roverImage');
+    var metas = document.getElementsByClassName('roverMeta');
+
+    // If currentSlide is past end of either array, reset slideIndex (for looping)
+    if (currentSlide > images.length || currentSlide > metas.length) {
         slideIndex = 1
     }
-    if (n < 1) {
-        slideIndex = x.length
+
+    // If currentSlide is less than 1, reset slideIndex to end (for looping)
+    if (currentSlide < 1) {
+        slideIndex = images.length;
     }
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-        y[i].style.display = "none";
+
+    // Hide all images
+    for (var i = 0; i < images.length; i++) {
+        images[i].style.display = 'none';
     }
-    if (x[slideIndex-1] !== undefined) {
-        x[slideIndex-1].style.display = "block";
-        y[slideIndex-1].style.display = "block";
+
+    // Hide all metas
+    for (var j = 0; j < metas.length; j++) {
+        metas[j].style.display = 'none';
+    }
+
+    // Display current image and meta
+    if (images[slideIndex - 1] !== undefined && metas[slideIndex - 1] !== undefined) {
+        images[slideIndex - 1].style.display = 'block';
+        metas[slideIndex - 1].style.display = 'block';
     }
 }
 
@@ -115,4 +128,4 @@ function showDivs(n) {
 queryMarsPhotos(APIKEYNASA, 'curiosity', 'NAVCAM', 1848, 1);
 
 var slideIndex = 1;
-showDivs(slideIndex);
+showSlides(slideIndex);
