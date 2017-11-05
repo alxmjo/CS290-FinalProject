@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>Spirit</title>
+    <link rel="stylesheet" href="style/bulma.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-Spirit
+<nav class="navbar is-dark">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+            <img src="images/rovergram-logo.png" alt="Rovergram"
+                 width="112" height="28">
+        </a>
+        <div class="navbar-burger burger" data-target="collapsible-nav-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div id="collapsible-nav-menu" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="curiosity.html">
+                Curiosity
+            </a>
+            <a class="navbar-item" href="opportunity.html">
+                Opportunity
+            </a>
+            <a class="navbar-item is-active" href="spirit.html">
+                Spirit
+            </a>
+            <a class="navbar-item" href="about.html">
+                About
+            </a>
+        </div>
+
+        <div class="navbar-end"></div>
+    </div>
+</nav>
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div id="slideshow" class="column is-half is-offset-one-quarter">
+                <div id="slideshow-controls">
+                    <button class="previous" onclick="plusDivs(-1)">&#10094;</button>
+                    <button class="next" onclick="plusDivs(+1)">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="bulma.js"></script>
+<script src="spirit.js"></script>
 </body>
 </html>
