@@ -14,10 +14,8 @@ function queryMarsPhotos(apiKey, rover, camera, sol, pages) {
         if (err !== null) {
             console.log('Something went wrong: ' + err);
         } else {
+            // For each image retrieved from API, create HTML elements and append to the page
             for (var i = 0; i < data.photos.length; i++) {
-
-                // For each image retrieved from API, create HTML elements and append to the page
-
                 // Create new image element and append classes
                 var newImage = document.createElement("img");
                 newImage.src = data.photos[i].img_src;
@@ -59,6 +57,10 @@ function queryMarsPhotos(apiKey, rover, camera, sol, pages) {
 
                 // Append figure to existing slideshow element
                 slideshow.appendChild(newFigure);
+
+                // Prepare slides on initial query return
+                var slideIndex = 1;
+                showDivs(slideIndex);
             }
         }
     });
