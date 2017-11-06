@@ -1,6 +1,4 @@
 <!--
-TODO: Refactor javascript into single file
-TODO: Complete index.html
 TODO: Complete about.html
 TODO: Remove files with API keys (https://help.github.com/articles/removing-sensitive-data-from-a-repository/)
 -->
@@ -8,13 +6,71 @@ TODO: Remove files with API keys (https://help.github.com/articles/removing-sens
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Rovers</title>
+    <title>Rovergram</title>
+    <link rel="stylesheet" href="styles/bulma.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <ul>
-        <li><a href="spirit.html">Spirit</a></li>
-        <li><a href="opportunity.html">Opportunity</a></li>
-        <li><a href="curiosity.html">Curiosity</a></li>
-    </ul>
+<nav class="navbar is-dark">
+    <div class="navbar-brand">
+        <a class="navbar-item is-active" href="index.html">
+            <img src="images/rovergram-logo.png" alt="Rovergram"
+                 width="112" height="28">
+        </a>
+        <div class="navbar-burger burger" data-target="collapsible-nav-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div id="collapsible-nav-menu" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="curiosity.html">
+                Curiosity
+            </a>
+            <a class="navbar-item" href="opportunity.html">
+                Opportunity
+            </a>
+            <a class="navbar-item" href="spirit.html">
+                Spirit
+            </a>
+            <a class="navbar-item" href="about.html">
+                About
+            </a>
+        </div>
+        <div class="navbar-end"></div>
+    </div>
+</nav>
+<div class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-one-third">
+                <figure class="image">
+                    <a href="curiosity.html"><img src="images/curiosity.jpg" alt="Curiosity rover" class="rounded">
+                        <p class="title is-3">Curiosity</p>
+                        <p class="subtitle is-5">Landed August 6, 2012</p>
+                    </a>
+                </figure>
+            </div>
+            <div class="column is-one-third">
+                <figure class="image">
+                    <a href="opportunity.html"><img src="images/opportunity.jpg" alt="Opportunity rover" class="rounded">
+                        <p class="title is-3">Opportunity</p>
+                        <p class="subtitle is-5">Landed January 25, 2004</p>
+                    </a>
+                </figure>
+            </div>
+            <div class="column is-one-third">
+                <figure class="image">
+                    <a href="spirit.html"><img src="images/spirit.jpg" alt="Spirit rover" class="rounded">
+                        <p class="title is-3">Spirit</p>
+                        <p class="subtitle is-5">Landed January 4, 2004</p>
+                    </a>
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="scripts/bulma.js"></script>
 </body>
 </html>
