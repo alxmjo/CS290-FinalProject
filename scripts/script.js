@@ -134,7 +134,7 @@ function showSlides(currentSlide) {
 }
 
 // ---- Main ----
-queryMarsPhotos(APIKEYNASA, 'curiosity', 'NAVCAM', 1848, 1);
+queryMarsPhotos(APIKEYNASA, roverName, roverCam, sol, pages);
 
 var slideIndex = 1;
 showSlides(slideIndex);
