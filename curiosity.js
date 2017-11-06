@@ -29,6 +29,12 @@ function queryMarsPhotos(apiKey, rover, camera, sol, pages) {
                 var newContentDate = document.createTextNode('Date: ' + newDate);
                 var newContentCamera = document.createTextNode('Camera: ' + String(data.photos[i].camera.full_name));
 
+                // Create download link
+                var newElementDownload = document.createElement('a');
+                newElementDownload.textContent = 'Download';
+                newElementDownload.setAttribute('href', data.photos[i].img_src);
+                newElementDownload.setAttribute('download', '');
+
                 // Create new li's
                 var newLISol = document.createElement('li');
                 newLISol.appendChild(newContentSol);
@@ -36,6 +42,8 @@ function queryMarsPhotos(apiKey, rover, camera, sol, pages) {
                 newLIDate.appendChild(newContentDate);
                 var newLICamera = document.createElement('li');
                 newLICamera.appendChild(newContentCamera);
+                var newLIDownload = document.createElement('li');
+                newLIDownload.appendChild(newElementDownload);
 
                 // Create new ul items and append li's
                 var newUL = document.createElement('ul');
@@ -43,6 +51,7 @@ function queryMarsPhotos(apiKey, rover, camera, sol, pages) {
                 newUL.appendChild(newLISol);
                 newUL.appendChild(newLIDate);
                 newUL.appendChild(newLICamera);
+                newUL.appendChild(newLIDownload);
 
                 // Create new div and append ul
                 var newDiv = document.createElement('div');
