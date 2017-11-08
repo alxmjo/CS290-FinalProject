@@ -6,6 +6,6 @@ Images taken by the Mars rovers Curiosity, Opportunity, and Spirit remind me of 
 
 Because the images on this site are gathered dynamically from NASA, it would make sense to automatically include the most recent images from the rovers on each page load. However, the API [does not currently support](https://github.com/chrisccerami/mars-photo-api/issues/67) this functionality. Instead, I decided to pick sols (Martian days) with interesting photos and collect those via the API.
 
-Visible at: [http://projects.alexmontjohn.com/rovergram](http://projects.alexmontjohn.com/rovergram)
-
 ![website screenshot](https://github.com/alxmjo/Rovergram/blob/master/dev/Rovergram-screenshot.png)
+
+Visible at: [http://projects.alexmontjohn.com/rovergram](http://projects.alexmontjohn.com/rovergram)
